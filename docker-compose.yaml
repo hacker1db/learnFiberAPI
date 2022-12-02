@@ -1,0 +1,11 @@
+version: "3"
+services:
+  fiberapi:
+    image: cosmtrek/air
+    # working_dir value has to be the same of mapped volume
+    working_dir: /Users/hacker1db/code/goprojects/learnFiberAPI
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/Users/hacker1db/code/goprojects/learnFiberAPI
+
