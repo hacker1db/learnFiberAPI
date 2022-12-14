@@ -16,6 +16,13 @@ func HealthCheck(app *fiber.App) {
 		}
 		return err
 	})
+	app.Get("/", func(c *fiber.Ctx) error {
+		err := c.Status(200).JSON(" Everything appears to be Healthy")
+		if err != nil {
+			return c.Status(400).JSON(err.Error())
+		}
+		return err
+	})
 }
 
 func SetUpUserRoutes(app *fiber.App) {
@@ -53,7 +60,6 @@ func main() {
 
 	if os.Getenv("Env") == "production" {
 		log.Fatal(app.Listen(":3000"))
-
 	}
 	log.Fatal(app.Listen("localhost:3000"))
 }

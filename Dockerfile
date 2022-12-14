@@ -11,6 +11,7 @@ WORKDIR /app
 # go build will build an executable file named server in the current directory
 RUN go build -o server . 
 RUN addgroup -S nonrootgroup && adduser -S appuser -G nonrootgroup
+ENV Env=production
 # run as non root user
 USER appuser
 # Run the server executable
